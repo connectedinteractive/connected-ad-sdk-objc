@@ -80,6 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)requestAppTrackingPermissionWithCompletion: (void(^)(NSUInteger status))completion;
 +(bool)needsAppTrackingPermission;
 
+#pragma mark: Testing
++(void)addTestDevice:(AdType) type deviceId:(NSString*) deviceId;
 @end
 
 NS_ASSUME_NONNULL_END

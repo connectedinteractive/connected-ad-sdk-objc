@@ -160,12 +160,15 @@ NSError* playbackErrorCode;
             }
         }
     }
+    
     GAMRequest *request = [GAMRequest request];
+
     [GADRewardedAd loadWithAdUnitID:rewardedAdUnitId
                               request:request
                     completionHandler:^(GADRewardedAd *ad, NSError *error) {
         if (error) {
-          NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
+            NSLog(@"Rewarded ad %@ failed to load with error: %@, code: %ld", rewardedAdUnitId, [error localizedDescription], (long)[error code]);
+            [self.delegate onRewardNoAdAvailable];
           return;
         }
         self.rewardedAd = ad;

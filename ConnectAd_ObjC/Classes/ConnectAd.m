@@ -403,4 +403,14 @@ BOOL initializationStatus;
         }];
     }
 }
+
++ (void)addTestDevice:(AdType)type deviceId:(NSString *)deviceId {
+    switch (type) {
+        case ADSMANAGER:
+            GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[ deviceId ];
+            break;
+        default:
+            break;
+    }
+}
 @end
